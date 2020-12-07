@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feed_back</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/Project/eProject.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,600;1,600&family=Teko&family=Texturina:wght@100&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--<div class="bg-img"> -->
+    <nav class="navbar navbar-default" role="navigation">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Project/eProject.html">Home</a></li>
+                <li><a href="/Project/news.html">News</a></li>
+                <li><a href="/Project/covid-19.html">Covid-19</a></li>
+                <li><a href="/Project/2020_election.html">2020-Election</a></li>
+                <li><a href="/Project/sport.html">Sport</a></li>
+                <li><a href="/Project/healthy.html">Healthy</a></li>
+                <li><a href="/Project/Entertainment.html">Entertainment</a></li>
+                <li><a href="/Project/feed_back.html">Feed Back</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" action="/action_page.php">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+    <!--<h3 class="glow">WELCOME TO TBLT NEWSPAPER</h3> -->
+    </div>
+    </div>
+    <div class="container">
+        <section class="section-feed-back">
+            <div id="tx2">
+                <h1 class="efi" style="font-family: 'Lato', sans-serif;">YOUR FEED BACK</h1>
+            </div>
+            <div id="tx3">
+                <form action="" id="formDK" name="formDK">
+                    <label for="">First name</label>
+                    <input type="text" id="firstName" name="firstName" required><br><br>
+
+                    <label for="">Last name</label>
+                    <input type="text" id="lastName" name="lastName" required><br><br>
+
+                    <label for="">Date of Birth</label>
+                    <input type="date" name="dob" id="dob" value="1988-06-14"><br><br>
+
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="email" placeholder="xxxx@xxx.xxx" required><br><br>
+
+                    <label for="">Are you employed</label>
+                    <input type="radio" name="rating" id="rating" checked value="Yes"> Yes
+                    <input type="radio" name="rating" id="rating" checked value="No"> No
+                    <br><br>
+
+                    <label for="">How did you know about this website ?</label>
+                    <input type="checkbox" name="how" id="howNewpaper" checked value="Newpaper"> Newpaper
+                    <input type="checkbox" name="how" id="howMagazine" checked value="Magazine"> Magazine
+                    <input type="checkbox" name="how" id="howFromafriend" value="From a Friend"> From a friend
+                    <input type="checkbox" name="how" id="howFromawebsite" value="From a website"> From a website
+                    <br><br>
+
+                    <label for="">Contents</label><br>
+                    <textarea name="summary" id="summary" cols="54" rows="6"></textarea>
+                    <br><br>
+
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+            </div>
+        </section>
+
+        <script>
+            document.getElementById("formDK").onsubmit = function () {
+                var firstName = document.getElementById("firstName").value;
+                var lastName = document.getElementById("lastName").value;
+                var email = document.getElementById("email").value;
+                var re = /^\w{4,}@\w+\.com$/
+                if (re.test(email) == false) {
+                    alert("email khong hop le\nvui long nhap lai !!!");
+                    document.getElementById("email").focus();
+                    return false;
+                }
+
+                var rating = document.querySelector("input[name='rating']:checked").value;
+                var how = Array.from(document.querySelectorAll("input[type=checkbox][name=how]:checked")).map(e => e.value);
+                var contents = document.getElementById("summary").value;
+                var dob = document.getElementById("dob").value;
+                var age = new Date().getFullYear() -
+                    (new Date(dob)).getFullYear();
+
+
+                var a = [];
+                a.push("This page says: Your feedback after typing");
+                a.push("------------------------------");
+                a.push(`First name: ${firstName}`);
+                a.push(`last name: ${lastName}`);
+                a.push(`Age: ${age}`)
+                a.push(`Email: ${email}`);
+                a.push(`Is employed: ${rating}`);
+                a.push(`Learn of site form: ${how.join(', ')}`);
+                a.push(`Contents: ${contents}`);
+                a.push("------------------------------");
+                a.push("Thank you for your interest in our TBLT newspaper page, have a happy day full of sunshine and wind.");
+                var s = a.join('\n');
+                alert(s);
+
+                return false;
+
+            }
+        </script>
+    </div>
+    <br>
+    <hr>
+
+    <div class="container-fluid bg-3 text-center">
+        <h1 class="creator-thang" style="font-family: 'Lato', sans-serif;">WEB CREATORS</h1>
+        <div class="padding-creator">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="/Project/images/logo_creator/tran_tai.png" alt="Random Name" width="160" height="160"
+                            style="border-radius: 50%;">
+                        <div class="name-id">
+                            <h5>Tran Hoang Quoc Tai</h5><span>ID: Student1273014</span><br>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/facebook.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/gmail.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/twitter.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="/Project/images/logo_creator/hoa_long.png" alt="Random Name" width="160" height="160"
+                            style="border-radius: 50%;">
+                        <div class="name-id">
+                            <h5>Duong Hoa Long</h5><span>ID: Student1275060</span><br>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/facebook.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/gmail.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/twitter.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="/Project/images/logo_creator/giabao.png" alt="Random Name" width="160" height="160"
+                            style="border-radius: 50%;">
+                        <div class="name-id">
+                            <h5>Trinh Gia Bao</h5><span>ID: Student1275081</span><br>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/facebook.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/gmail.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/twitter.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="/Project/images/logo_creator/han_daewi.png" alt="Random Name" width="160" height="160"
+                            style="border-radius: 50%;">
+                        <div class="name-id">
+                            <h5>Pham Quoc Thang</h5><span>ID: Student1273525</span><br>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/facebook.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/gmail.png" alt=""></a>
+                            <a href=""><img width="50px" src="/Project/images/logo_creator/twitter.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <hr>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.319350036688!2d106.66408561406833!3d10.786834792314465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1svi!2s!4v1602837652133!5m2!1svi!2s"
+        width="100%" height="450px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+    <div class="footer-thang">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 tx3">
+                    <a href="#"><img width="280px" style="margin-top: -38px;"
+                            src="/Project/images/logo_creator/TBLT_NEWSPAPER-removebg-preview.png" alt=""></a>
+                </div>
+                <div class="col-md-4 tx1">
+                    <li><a href="/Project/eProject.html">Home</a></li>
+                    <li><a href="/Project/news.html">News</a></li>
+                    <li><a href="/Project/covid-19.html">Covid-19</a></li>
+                    <li><a href="/Project/2020_election.html">2020-Election</a></li>
+                    <li><a href="/Project/sport.html">Sport</a></li>
+                    <li><a href="/Project/healthy.html">Healthy</a></li>
+                    <li><a href="/Project/Entertainment.html">Entertainment</a></li>
+                    <li><a href="/Project/feed_back.html">Feed Back</a></li>
+                    <hr>
+                </div>
+                <div class="col-md-4 tx2">
+                    <li><a href="">Contact Us</a></li>
+                    <p><span class="glyphicon glyphicon-envelope"></span> Email: aptech.hcm@fpt.com.vn</p>
+                    <p><span class="glyphicon glyphicon-earphone"></span> Phone: 0987-654-321</p>
+                    <br>
+                    <li><a href="">Location</a></li>
+                    <img width="85px" src="/Project/images/logo_creator/vietnamese.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-thang2">
+        <footer class="copyright-thang">
+            Copy &copy; Website produced by team TBLT. All rights reserved.
+        </footer>
+    </div>
+</body>
+
+</html>
