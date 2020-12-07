@@ -1,2 +1,3 @@
 # news
-test: https://thangpro2010.github.io/news/.
+test: https://thangpro2010.github.io/news/
+
